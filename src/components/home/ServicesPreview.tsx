@@ -1,25 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
 const SERVICES = [
 	{
-		title: "Architectural Services",
-		desc: "Designing modern, functional, and sustainable spaces tailored to your vision.",
+		title: "Cement Plants",
+		desc: "Comprehensive structural and engineering solutions for cement manufacturing facilities.",
+		img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12",
 	},
 	{
-		title: "Structural Engineering",
-		desc: "Delivering safe, efficient, and high-performance structural solutions.",
+		title: "Power Plants",
+		desc: "Efficient and reliable engineering for thermal and industrial power projects.",
+		img: "https://images.unsplash.com/photo-1509395176047-4a66953fd231",
 	},
 	{
-		title: "Electrical & HVAC Engineering",
-		desc: "Smart, energy-efficient systems ensuring comfort and operational reliability.",
+		title: "Industrial Projects",
+		desc: "End-to-end engineering solutions for diverse industrial infrastructures.",
+		img: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c",
 	},
 	{
-		title: "Project Management",
-		desc: "End-to-end project execution with quality control and timely delivery.",
+		title: "Residential & Commercial",
+		desc: "Modern, safe, and sustainable building design for urban developments.",
+		img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
 	},
 ];
 
@@ -34,39 +38,52 @@ export default function ServicesPreview() {
 					</p>
 
 					<h2 className="text-4xl sm:text-5xl font-extrabold text-[#052B59] mt-3">
-						Comprehensive Engineering Solutions
+						Industries We Serve
 					</h2>
+
+					<p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+						Delivering specialized engineering solutions across industries with
+						precision, safety, and efficiency.
+					</p>
 				</div>
 
-				{/* Grid */}
+				{/* Grid (ONLY 4) */}
 				<div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
 					{SERVICES.map((service, i) => (
 						<motion.div
 							key={i}
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ delay: i * 0.1 }}
-							className="group relative bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-xl transition duration-300">
-							{/* Top Accent Line */}
-							<div className="absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r from-[#052B59] to-[#F59E0B] rounded-t-2xl" />
+							transition={{ delay: i * 0.08 }}
+							className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+							{/* Image */}
+							<img
+								src={service.img}
+								alt={service.title}
+								className="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+							/>
 
-							{/* Icon Circle */}
-							<div className="w-12 h-12 flex items-center justify-center rounded-xl bg-[#052B59]/10 text-[#052B59] mb-5 group-hover:bg-[#052B59] group-hover:text-white transition">
-								{i + 1}
+							{/* Overlay */}
+							<div className="absolute inset-0 bg-gradient-to-t from-[#052B59]/95 via-[#052B59]/60 to-transparent" />
+
+							{/* Content */}
+							<div className="absolute bottom-0 p-5">
+								<h3 className="text-white font-semibold text-lg">
+									{service.title}
+								</h3>
+
+								<p className="text-gray-200 text-sm mt-2 line-clamp-2">
+									{service.desc}
+								</p>
+
+								<div className="flex items-center gap-2 text-[#F59E0B] text-sm mt-3 opacity-0 group-hover:opacity-100 transition">
+									Learn More
+									<FiArrowRight size={14} />
+								</div>
 							</div>
 
-							{/* Title */}
-							<h3 className="text-lg font-semibold text-[#052B59] mb-3">
-								{service.title}
-							</h3>
-
-							{/* Description */}
-							<p className="text-sm text-gray-600 leading-relaxed">
-								{service.desc}
-							</p>
-
-							{/* Hover Glow */}
-							<div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 bg-gradient-to-br from-[#052B59]/5 to-[#F59E0B]/5 transition" />
+							{/* Top Accent */}
+							<div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#052B59] to-[#F59E0B]" />
 						</motion.div>
 					))}
 				</div>
@@ -75,7 +92,7 @@ export default function ServicesPreview() {
 				<div className="text-center mt-14">
 					<Link href="/services">
 						<button className="inline-flex items-center gap-2 px-8 py-3 bg-[#052B59] text-white rounded-xl font-semibold hover:bg-[#041f40] transition">
-							View More Services
+							View All Services
 							<FiArrowRight size={18} />
 						</button>
 					</Link>

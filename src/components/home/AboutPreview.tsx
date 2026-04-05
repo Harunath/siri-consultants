@@ -31,8 +31,18 @@ export default function AboutPreview() {
 						<span className="font-semibold text-[#052B59]">
 							Sri D. Srinivasa Rao
 						</span>
-						, delivering high-precision structural solutions with innovation,
-						integrity, and decades of expertise.
+						, IIT Chennai Gold Medalist, delivering architectural, civil,
+						structural, and mechanical engineering solutions with precision and
+						innovation.
+					</p>
+
+					<p className="mt-4 text-[#475569] text-base leading-relaxed max-w-xl">
+						With over 32+ years of experience and 700+ projects executed across
+						industrial, commercial, and residential sectors, we specialize in
+						cost-effective design, advanced engineering standards, and
+						end-to-end project execution — serving both public and private
+						sector clients, including major organizations like BHEL, GAIL, and
+						leading cement and steel industries.
 					</p>
 
 					{/* CTA */}
@@ -59,7 +69,7 @@ export default function AboutPreview() {
 					className="relative">
 					<div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-4">
 						<Image
-							src="https://res.cloudinary.com/dgulr1hgd/image/upload/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg"
+							src="https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1775294574/about-01_wq8mbp.jpg"
 							alt="Siri Consultants"
 							width={600}
 							height={400}
@@ -67,9 +77,9 @@ export default function AboutPreview() {
 						/>
 					</div>
 
-					{/* Small badge (inside, not floating outside) */}
+					{/* Badge */}
 					<div className="absolute bottom-6 left-6 bg-[#052B59] text-white px-4 py-2 rounded-lg shadow-md">
-						<span className="text-sm font-semibold">25+ Years Experience</span>
+						<span className="text-sm font-semibold">32+ Years Experience</span>
 					</div>
 				</motion.div>
 			</div>
