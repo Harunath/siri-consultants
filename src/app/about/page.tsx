@@ -3,6 +3,7 @@ import OurCulture from "@/components/about/OurCulture";
 import OurTeam from "@/components/about/OurTeam";
 import WhatWeDo from "@/components/about/WhatWeDo";
 import WhoWeAre from "@/components/about/WhoWeAre";
+import WhyUs from "@/components/home/WhyUs";
 import React from "react";
 
 const page = () => {
@@ -11,6 +12,7 @@ const page = () => {
 			<AboutBanner />
 			<WhoWeAre />
 			<WhatWeDo />
+			<WhyUs />
 			<OurTeam />
 			<OurCulture />
 		</>

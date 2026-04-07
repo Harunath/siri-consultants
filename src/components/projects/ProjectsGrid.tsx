@@ -15,19 +15,19 @@ export default function ProjectsGrid() {
 							key={project.slug}
 							initial={{ opacity: 0, y: 30 }}
 							whileInView={{ opacity: 1, y: 0 }}
-							transition={{ delay: i * 0.05 }}
+							viewport={{ once: true }} // ✅ prevent re-animation lag
+							transition={{ duration: 0.5 }}
 							className="group relative rounded-3xl overflow-hidden shadow-lg cursor-pointer">
 							{/* IMAGE */}
 							<Image
 								src={
-									// fallback image (important)
 									project.image ||
 									"https://res.cloudinary.com/your-cloud-name/image/upload/v123/spinning.jpg"
 								}
 								alt={project.title}
 								width={500}
 								height={400}
-								className="w-full h-[280px] object-cover group-hover:scale-110 transition duration-500"
+								className="w-full h-[280px] object-cover md:group-hover:scale-110 transition duration-500"
 							/>
 
 							{/* OVERLAY */}
@@ -37,18 +37,25 @@ export default function ProjectsGrid() {
 							<div className="absolute bottom-0 p-6 text-white w-full">
 								<h3 className="text-xl font-bold">{project.title}</h3>
 
-								{/* OPTIONAL description */}
+								{/* DESCRIPTION */}
 								{project.description && (
-									<p className="text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition duration-300">
+									<p className="text-sm text-gray-200 mt-2 md:opacity-0 md:group-hover:opacity-100 transition duration-300">
 										{project.description}
 									</p>
 								)}
 
 								{/* LINE */}
-								<div className="mt-3 h-[2px] w-10 bg-[#F59E0B] group-hover:w-16 transition-all duration-300" />
+								<div className="mt-3 h-[2px] w-10 bg-[#F59E0B] md:group-hover:w-16 transition-all duration-300" />
 
 								{/* BUTTONS */}
-								<div className="mt-4 flex gap-3 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+								<div
+									className="
+                    mt-4 flex gap-3
+                    opacity-100 translate-y-0
+                    md:opacity-0 md:translate-y-4
+                    md:group-hover:opacity-100 md:group-hover:translate-y-0
+                    transition-all duration-300
+                  ">
 									<Link href={`/projects/${project.slug}/completed`}>
 										<button className="px-4 py-2 text-xs rounded-lg bg-[#F59E0B] text-white font-medium hover:bg-[#d97706] transition">
 											Completed ({project.completed.length})
