@@ -1,8 +1,8 @@
 "use client";
 
-import useEmblaCarousel from "embla-carousel-react";
-import { useEffect, useCallback } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const slides = [
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1774978130/banner2_xbwinx.jpg",
@@ -10,79 +10,67 @@ const slides = [
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
 ];
 
-export default function HeroCarousel() {
-	const [emblaRef, emblaApi] = useEmblaCarousel({
-		loop: true,
-		align: "start",
-	});
+export default function HeroSlider() {
+	const [index, setIndex] = useState(0);
 
-	// autoplay
-	const autoplay = useCallback(() => {
-		if (!emblaApi) return;
-
-		const interval = setInterval(() => {
-			emblaApi.scrollNext();
-		}, 4500);
-
-		return () => clearInterval(interval);
-	}, [emblaApi]);
-
+	// Auto slide
 	useEffect(() => {
-		const stop = autoplay();
-		return stop;
-	}, [autoplay]);
+		const interval = setInterval(() => {
+			setIndex((prev) => (prev + 1) % slides.length);
+		}, 5000);
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
-		<section className="relative w-full h-[100vh] min-h-[600px] overflow-hidden">
-			{/* Carousel */}
-			<div className="overflow-hidden h-full" ref={emblaRef}>
-				<div className="flex h-full">
-					{slides.map((img, index) => (
-						<div key={index} className="flex-[0_0_100%] relative h-full">
-							{/* Image */}
-							<div
-								className="absolute inset-0 bg-cover bg-center will-change-transform animate-[zoom_8s_linear_infinite]"
-								style={{
-									backgroundImage: `url(${img})`,
-								}}
-							/>
+		<div className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
+			<AnimatePresence mode="wait">
+				<motion.div
+					key={index}
+					initial={{ opacity: 0, scale: 1.1 }}
+					animate={{ opacity: 1, scale: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 1 }}
+					className="absolute w-full h-full">
+					<Image
+						src={slides[index]}
+						alt="Slide"
+						fill
+						className="object-cover"
+						priority
+					/>
 
-							{/* 🔥 Brand Overlay (important upgrade) */}
-							<div className="absolute inset-0 bg-gradient-to-b from-[#052B59]/80 via-[#052B59]/60 to-black/70" />
-						</div>
-					))}
-				</div>
+					{/* Overlay */}
+					<div className="absolute inset-0 bg-black/40" />
+
+					{/* Content */}
+					<motion.div
+						initial={{ y: 80, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						transition={{ delay: 0.5, duration: 0.8 }}
+						className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+						<h1 className="text-3xl md:text-6xl font-bold mb-4">
+							Engineering Excellence
+						</h1>
+						<p className="max-w-xl text-sm md:text-lg opacity-90">
+							Delivering high-quality design and consulting solutions for
+							industries worldwide.
+						</p>
+					</motion.div>
+				</motion.div>
+			</AnimatePresence>
+
+			{/* Dots */}
+			<div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+				{slides.map((_, i) => (
+					<button
+						key={i}
+						onClick={() => setIndex(i)}
+						className={`w-3 h-3 rounded-full ${
+							index === i ? "bg-white" : "bg-white/40"
+						}`}
+					/>
+				))}
 			</div>
-
-			{/* Content */}
-			<div className="absolute inset-0 flex items-center justify-center text-center z-10 px-4 sm:px-6">
-				<div className="max-w-5xl ">
-					<h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-						Building India’s Industrial Backbone Since 1981
-					</h1>
-
-					<p className="text-base sm:text-lg md:text-xl text-gray-200 mb-10">
-						Experts in Structural, Architectural & Industrial Engineering
-						Solutions
-					</p>
-
-					<div className="flex flex-col sm:flex-row gap-4 justify-center">
-						{/* Primary CTA */}
-						<Link
-							href="/projects"
-							className="bg-[#F59E0B] text-black px-6 sm:px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(245,158,11,0.6)] transition">
-							View Projects
-						</Link>
-
-						{/* Secondary CTA */}
-						<Link
-							href="/contact"
-							className="border border-white text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#052B59] transition">
-							Contact Us
-						</Link>
-					</div>
-				</div>
-			</div>
-		</section>
+		</div>
 	);
 }
