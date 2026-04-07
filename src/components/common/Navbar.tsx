@@ -28,24 +28,32 @@ export default function Navbar() {
 	return (
 		<header
 			className={`fixed w-full z-50 transition-all duration-300 py-5 ${
-				isSolid
-					? mobileOpen
+				mobileOpen
+					? "bg-white"
+					: isSolid
 						? "bg-white shadow-md"
 						: "bg-transparent"
-					: "bg-transparent"
 			}`}>
 			<div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 				{/* LOGO */}
 				<Link href="/" className="flex flex-col leading-tight">
 					<span
 						className={`text-xl font-bold ${
-							isSolid ? "text-[#052B59]" : "text-white"
+							mobileOpen
+								? "text-[#052B59]"
+								: isSolid
+									? "text-[#052B59]"
+									: "text-white"
 						}`}>
 						SIRI CONSULTANTS
 					</span>
 					<span
 						className={`text-xs ${
-							isSolid ? "text-[#334155]" : "text-gray-300"
+							mobileOpen
+								? "text-[#052B59]"
+								: isSolid
+									? "text-[#052B59]"
+									: "text-white"
 						}`}>
 						Architects Engineers & Industrial Consultants
 					</span>
@@ -82,7 +90,11 @@ export default function Navbar() {
 				<button
 					onClick={() => setMobileOpen(!mobileOpen)}
 					className={`md:hidden text-2xl ${
-						isSolid ? "text-[#052B59]" : "text-white"
+						mobileOpen
+							? "text-[#052B59]"
+							: isSolid
+								? "text-[#052B59]"
+								: "text-white"
 					}`}>
 					☰
 				</button>
