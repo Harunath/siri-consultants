@@ -9,7 +9,7 @@ export default function Navbar() {
 
 	// Scroll effect
 	useEffect(() => {
-		const handleScroll = () => setScrolled(window.scrollY > 30);
+		const handleScroll = () => setScrolled(window.scrollY > 40);
 		window.addEventListener("scroll", handleScroll);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
@@ -27,8 +27,12 @@ export default function Navbar() {
 
 	return (
 		<header
-			className={`fixed w-full z-50 transition-all duration-300 ${
-				isSolid ? "bg-white shadow-md py-3" : "bg-transparent py-5"
+			className={`fixed w-full z-50 transition-all duration-300 py-5 ${
+				isSolid
+					? mobileOpen
+						? "bg-white shadow-md"
+						: "bg-transparent"
+					: "bg-transparent"
 			}`}>
 			<div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 				{/* LOGO */}
@@ -86,7 +90,7 @@ export default function Navbar() {
 
 			{/* MOBILE MENU */}
 			{mobileOpen && (
-				<div className="md:hidden bg-white shadow-lg px-6 py-5 space-y-4">
+				<div className={`md:hidden bg-white shadow-lg px-6 py-5 space-y-4`}>
 					{navLinks.map((link) => (
 						<Link
 							key={link.name}

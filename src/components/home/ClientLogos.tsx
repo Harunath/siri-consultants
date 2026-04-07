@@ -11,7 +11,6 @@ const logos = [
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774979578/client_image1_mxjijg.jpg",
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774979574/client_image18_ehpelr.jpg",
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774979553/client_image5_z3plfn.jpg",
-	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774979553/client_image5_z3plfn.jpg",
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774979551/client_image12_dpuq7k.jpg",
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774979535/client_image23_jp6y1b.jpg",
 	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774979527/client_image22_mbb9lo.jpg",
@@ -20,7 +19,7 @@ const logos = [
 export default function ClientsSection() {
 	const [showAll, setShowAll] = useState(false);
 
-	const visibleLogos = showAll ? logos : logos.slice(0, 6); // show 2 rows initially
+	const visibleLogos = showAll ? logos : logos.slice(0, 5); // show 2 rows initially
 
 	return (
 		<section className="py-24 bg-white">
@@ -44,10 +43,9 @@ export default function ClientsSection() {
 							<Image
 								src={logo}
 								alt="Client Logo"
-								width={160}
-								height={80}
-								className="object-contain max-h-[60px]"
-								style={{ width: "auto", height: "auto" }}
+								width={480}
+								height={240}
+								className="object-contain max-h-20 "
 							/>
 						</div>
 					))}
