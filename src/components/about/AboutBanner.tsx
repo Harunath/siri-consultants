@@ -5,7 +5,7 @@ export default function AboutBanner() {
 		<HeroBanner
 			subtitle="About Us"
 			title="Engineering Excellence Built on Trust"
-			image="https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774978130/banner2_xbwinx.jpg"
+			image="https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1775559851/the-cement-industry-and-the-environment-air-quality-monitoring_yavzdu.jpg"
 			primaryBtn={{
 				label: "Contact Us",
 				href: "/contact",

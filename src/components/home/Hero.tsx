@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const slides = [
-	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1774978130/banner2_xbwinx.jpg",
-	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1774978135/banner4_lstoqw.jpg",
-	"https://res.cloudinary.com/dgulr1hgd/image/upload/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
+	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1775559793/powergeneration-1_npsbw4.jpg",
+	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1775559851/the-cement-industry-and-the-environment-air-quality-monitoring_yavzdu.jpg",
+	"https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1775559836/230823-maui-lahaina-wildfire-big-sugar-ag-plantations-water-climate-change-risk-history-colonialism-1-top-sugar-mill-credit-John-elk-getty-images_jzr4rq.jpg",
 ];
 
 export default function HeroSlider() {
