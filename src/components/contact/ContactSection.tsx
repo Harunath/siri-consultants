@@ -192,10 +192,10 @@ export default function ContactSection() {
 				{/* Map */}
 				<div className="mt-16 rounded-3xl overflow-hidden shadow-lg border border-gray-200">
 					<iframe
-						src="https://maps.google.com/maps?q=ameerpet%20hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
-						className="w-full h-[400px] border-0"
-						loading="lazy"
-					/>
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.502665150513!2d78.4501988!3d17.4356391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c85189f999%3A0x5911ad062c13e523!2sSiri%20Consultants!5e0!3m2!1sen!2sin!4v1783059736670!5m2!1sen!2sin"
+						height="450"
+						className="w-full border-0"
+						loading="lazy"></iframe>
 				</div>
 			</div>
 		</section>
