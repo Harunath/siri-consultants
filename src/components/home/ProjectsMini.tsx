@@ -6,15 +6,18 @@ import Link from "next/link";
 const projects = [
 	{
 		title: "Cement & Industrial Plants",
-		img: "https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
+		// img: "https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
+		img: "/4.jpg",
 	},
 	{
 		title: "Power & Energy Projects",
-		img: "https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
+		// img: "https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
+		img: "/11.jpg",
 	},
 	{
 		title: "Commercial & Residential",
-		img: "https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
+		// img: "https://res.cloudinary.com/dgulr1hgd/image/upload/q_auto/f_auto/v1774978083/Cofrentes_nuclear_power_plant_cooling_towers_retouched_w1inid.jpg",
+		img: "/19.jpg",
 	},
 ];
 

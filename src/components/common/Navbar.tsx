@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
 	const [scrolled, setScrolled] = useState(false);
@@ -37,7 +38,7 @@ export default function Navbar() {
 			<div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 				{/* LOGO */}
 				<Link href="/" className="flex flex-col leading-tight">
-					<span
+					{/* <span
 						className={`text-xl font-bold ${
 							mobileOpen
 								? "text-[#052B59]"
@@ -56,7 +57,13 @@ export default function Navbar() {
 									: "text-white"
 						}`}>
 						Architects Engineers & Industrial Consultants
-					</span>
+					</span> */}
+					<Image
+						height={50}
+						width={50}
+						src="/0.jpg"
+						alt="Siri Consultants Logo"
+					/>
 				</Link>
 
 				{/* DESKTOP NAV */}
